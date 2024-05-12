@@ -74,13 +74,17 @@ int main(){
 */
 
 int main(int argc,char **argv){
+
     // 调用框架的初始化操作
+    // 启动时需要读取配置文件，需要知道ip地址和端口号，
+    // provider -i config.conf  读取config.conf里面的配置文件
     MprpcApplication::Init(argc,argv);
 
 
     // provider是一个rpc网络服务对象，把UserService对象发布到rpc节点上
+    // 数据的序列化、反序列化网络的数据收发
     RpcProvider provider;   // 发布服务  使用moduo库
-    provider.NotifyService(new UserService);
+    provider.NotifyService(new UserService());
 
     // 启动一个rpc服务发布节点，run以后，进程进入阻塞状态，等待远程的rpc调用请求
     provider.Run();

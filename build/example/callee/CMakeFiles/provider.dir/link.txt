@@ -1,0 +1,1 @@
+/usr/bin/c++   -g   CMakeFiles/provider.dir/userservice.cc.o CMakeFiles/provider.dir/__/user.pb.cc.o  -o ../../../bin/provider  -L/home/qing/project/rpc_project/lib -rdynamic ../../../lib/libmprpc.so -lprotobuf -lpthread -Wl,-rpath,/home/qing/project/rpc_project/lib 
