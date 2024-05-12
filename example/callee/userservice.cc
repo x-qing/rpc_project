@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 #include "user.pb.h"
+#include "mprpcapplication.h"
+#include "rpcprovider.h"
 /*
 UserService原来是一个本地服务，提供了两个进程内的本地方法，Login和GetfriendLists
 */
@@ -42,6 +44,7 @@ class UserService : public fixbug::UserServiceRpc{  // 使用在rpc服务的发�
                     // 调用执行回调操作   执行响应数据的序列化和网络发送（由框架完成）
                     done->Run();
                 }
+    
 
 };
 
@@ -69,3 +72,17 @@ int main(){
     return 0;
 }
 */
+
+int main(int argc,char **argv){
+    // 调用框架的初始化操作
+    MprpcApplication::Init(argc,argv);
+
+
+    // provider是一个rpc网络服务对象，把UserService对象发布到rpc节点上
+    RpcProvider provider;   // 发布服务  使用moduo库
+    provider.NotifyService(new UserService);
+
+    // 启动一个rpc服务发布节点，run以后，进程进入阻塞状态，等待远程的rpc调用请求
+    provider.Run();
+
+}
