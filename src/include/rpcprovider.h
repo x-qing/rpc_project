@@ -7,6 +7,10 @@
 #include <muduo/net/InetAddress.h>
 #include <muduo/net/TcpConnection.h>
 #include <muduo/net/Callbacks.h>
+#include <string>
+#include <functional>
+#include <google/protobuf/descriptor.h>
+#include <unordered_map>
 
 
 // 发布rpc的节点，这里可能会有很多的连接请求rpc的服务
@@ -28,6 +32,15 @@ private:
 
     // 组合了Eventloop
     muduo::net::EventLoop m_eventLoop;
+
+    // service服务类型信息
+    struct ServiceInfo{
+        google::protobuf::Service *m_service;   // 保存服务对象
+        // 键值类型  保存服务方法
+        std::unordered_map<std::string, const google::protobuf::MethodDescriptor*> m_methodMap;
+    };
+    // 存储注册成功的服务对象和其服务方法的所有信息
+    std::unordered_map<std::string,ServiceInfo> m_serviceInfoMap;
 
     // 新的socket连接回调
     void OnConnection(const muduo::net::TcpConnectionPtr&);

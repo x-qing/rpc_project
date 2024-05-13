@@ -1,10 +1,42 @@
 #include "rpcprovider.h"
 #include "mprpcapplication.h"
-#include <functional>
+
+
 
 // 用户怎么像rpcprovide注册它支持的rpc服务？怎么存储rpc服务？
 // 怎么通过接收到远程的rpc请求来找到相应的服务？
+// 框架不可能依赖于某个业务的具体的类，这里统一用基类的指针来实现
+
+/*
+    service_name ===>service描述 ===>
+                                ===> service* 记录服务对象
+                                method_name ==>method方法
+*/
 void RpcProvider::NotifyService(google::protobuf::Service* service){
+    // 获取服务对象的描述信息，这里描述的就是服务的对象和方法（UserService-->Login()）
+
+    ServiceInfo service_info;
+
+    const google::protobuf::ServiceDescriptor *pserviceDesc = service->GetDescriptor();
+    // 获取服务的名字
+    // 这里要包含对应的头文件
+    std::string service_name = pserviceDesc->name();
+    // 获取服务对象方法的数量，这里应该返回1，目前里面只有一个login方法
+    int methodCnt = pserviceDesc->method_count();
+
+    std::cout << "service_name:" << service_name << std::endl;
+
+
+    for(int i = 0;i < methodCnt; ++i){
+        //   const MethodDescriptor* method(int index) const;
+        // 获取了服务对象指定下标的服务方法的描述（抽象描述）
+        const google::protobuf::MethodDescriptor* pmethodDesc = pserviceDesc->method(i);
+        std::string method_name = pmethodDesc->name();
+        service_info.m_methodMap.insert({method_name,pmethodDesc});
+        std::cout << "method_name:" << method_name << std::endl;
+    }
+    service_info.m_service = service;
+    m_serviceInfoMap.insert({service_name,service_info});
 
 }
 
