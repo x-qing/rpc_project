@@ -68,7 +68,7 @@ void RpcProvider::Run(){
     // 设置muduo库的线程数量
     server.setThreadNum(4);
 
-    std::cout << "RpcProvider start service at ip" << ip << "port" << std::endl;
+    std::cout << "RpcProvider start service at ip:" << ip << "  port:"<<port << std::endl;
 
     // 启动网络服务
     server.start();
@@ -133,13 +133,11 @@ void RpcProvider::OnMessage(const muduo::net::TcpConnectionPtr& conn,muduo::net:
 
     // 打印信息
     std::cout << "--------------------------------------" << std::endl;
-
     std::cout << "head_size: " << header_size << std::endl;
     std::cout << "rpc_header_str: " << rpc_header_str << std::endl;
     std::cout << "service_name: " << service_name << std::endl;
     std::cout << "method_name: " << method_name << std::endl;
     std::cout << "args_str: " << args_str << std::endl;
-
     std::cout << "--------------------------------------" << std::endl;
     
     // 获取了远程rpc框架函数调用的对象名，函数名和参数

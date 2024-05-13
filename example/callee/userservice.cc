@@ -15,7 +15,7 @@ class UserService : public fixbug::UserServiceRpc{  // 使用在rpc服务的发�
     bool Login(std::string name,std::string pwd){
         std::cout << "loacl service name : "<< name << std::endl;
         std::cout << "loacl service pwd : "<< pwd << std::endl;
-        return true;
+        return false;
     }
 
 
@@ -39,8 +39,8 @@ class UserService : public fixbug::UserServiceRpc{  // 使用在rpc服务的发�
 
                     // 把响应写入，以及错误码和错误消息
                     fixbug::ResultCode *code = response->mutable_result();
-                    code->set_errcode(0);
-                    code->set_errmsg("");
+                    code->set_errcode(1);
+                    code->set_errmsg("Login do error!");
                     response->set_success(login_result);
 
                     // 调用执行回调操作   执行响应数据的序列化和网络发送（由框架完成）
