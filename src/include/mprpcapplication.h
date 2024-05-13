@@ -9,6 +9,7 @@ public:
     // 初始化一次就行
     static void Init(int argc,char **argv);
     static MprpcApplication& getInstance();
+    static MprpcConfig& GetConfig();
 private:
 
     static MprpcConfig m_config;

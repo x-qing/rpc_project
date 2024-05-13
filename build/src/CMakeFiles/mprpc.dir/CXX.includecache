@@ -19,6 +19,16 @@ string
 ../src/include/rpcprovider.h
 google/protobuf/service.h
 ../src/include/google/protobuf/service.h
+muduo/net/TcpServer.h
+-
+muduo/net/EventLoop.h
+-
+muduo/net/InetAddress.h
+-
+muduo/net/TcpConnection.h
+-
+muduo/net/Callbacks.h
+-
 
 /home/qing/project/rpc_project/src/mprpcapplication.cc
 mprpcapplication.h
@@ -41,4 +51,8 @@ string
 /home/qing/project/rpc_project/src/rpcprovider.cc
 rpcprovider.h
 /home/qing/project/rpc_project/src/rpcprovider.h
+mprpcapplication.h
+/home/qing/project/rpc_project/src/mprpcapplication.h
+functional
+-
 

@@ -2,6 +2,15 @@
 
 // 框架提供的专门用来发布rpc服务的网络对象类
 #include "google/protobuf/service.h"
+#include <muduo/net/TcpServer.h>
+#include <muduo/net/EventLoop.h>
+#include <muduo/net/InetAddress.h>
+#include <muduo/net/TcpConnection.h>
+#include <muduo/net/Callbacks.h>
+
+
+// 发布rpc的节点，这里可能会有很多的连接请求rpc的服务
+// 这里使用高并发的muduo网络库来实现
 
 class RpcProvider{
 public:
@@ -12,4 +21,16 @@ public:
 
     // 启动rpc服务节点，开始提供rpc远程调用服务
     void Run();
+
+private:
+    // // 组合了TcpServer
+    // std::unique_ptr<muduo::net::TcpServer> m_tcpserverPtr;
+
+    // 组合了Eventloop
+    muduo::net::EventLoop m_eventLoop;
+
+    // 新的socket连接回调
+    void OnConnection(const muduo::net::TcpConnectionPtr&);
+    // 已建立连接的读写事件回调
+    void OnMessage(const muduo::net::TcpConnectionPtr&,muduo::net::Buffer*,muduo::Timestamp);
 };
