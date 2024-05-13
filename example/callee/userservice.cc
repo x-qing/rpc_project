@@ -1,3 +1,5 @@
+// rpc方法的提供者
+
 #include <iostream>
 #include <string>
 #include "user.pb.h"

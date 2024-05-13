@@ -5,15 +5,18 @@ src/CMakeFiles/mprpc.dir/mprpcapplication.cc.o
  ../src/include/mprpcapplication.h
  ../src/include/mprpcconfig.h
  /home/qing/project/rpc_project/src/mprpcapplication.cc
+src/CMakeFiles/mprpc.dir/mprpcchannel.cc.o
+ ../src/include/mprpcchannel.h
+ /home/qing/project/rpc_project/src/mprpcchannel.cc
 src/CMakeFiles/mprpc.dir/mprpcconfig.cc.o
  ../src/include/mprpcconfig.h
  /home/qing/project/rpc_project/src/mprpcconfig.cc
 src/CMakeFiles/mprpc.dir/rpcheader.pb.cc.o
+ ../src/include/rpcheader.pb.h
  /home/qing/project/rpc_project/src/rpcheader.pb.cc
- /home/qing/project/rpc_project/src/rpcheader.pb.h
 src/CMakeFiles/mprpc.dir/rpcprovider.cc.o
  ../src/include/mprpcapplication.h
  ../src/include/mprpcconfig.h
+ ../src/include/rpcheader.pb.h
  ../src/include/rpcprovider.h
- /home/qing/project/rpc_project/src/rpcheader.pb.h
  /home/qing/project/rpc_project/src/rpcprovider.cc

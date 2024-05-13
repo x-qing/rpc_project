@@ -11,7 +11,6 @@ public:
     static MprpcApplication& getInstance();
     static MprpcConfig& GetConfig();
 private:
-
     static MprpcConfig m_config;
 
     MprpcApplication(){}
