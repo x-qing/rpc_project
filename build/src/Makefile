@@ -125,6 +125,33 @@ mprpc/fast:
 	cd /home/qing/project/rpc_project/build && $(MAKE) -f src/CMakeFiles/mprpc.dir/build.make src/CMakeFiles/mprpc.dir/build
 .PHONY : mprpc/fast
 
+logger.o: logger.cc.o
+
+.PHONY : logger.o
+
+# target to build an object file
+logger.cc.o:
+	cd /home/qing/project/rpc_project/build && $(MAKE) -f src/CMakeFiles/mprpc.dir/build.make src/CMakeFiles/mprpc.dir/logger.cc.o
+.PHONY : logger.cc.o
+
+logger.i: logger.cc.i
+
+.PHONY : logger.i
+
+# target to preprocess a source file
+logger.cc.i:
+	cd /home/qing/project/rpc_project/build && $(MAKE) -f src/CMakeFiles/mprpc.dir/build.make src/CMakeFiles/mprpc.dir/logger.cc.i
+.PHONY : logger.cc.i
+
+logger.s: logger.cc.s
+
+.PHONY : logger.s
+
+# target to generate assembly for a file
+logger.cc.s:
+	cd /home/qing/project/rpc_project/build && $(MAKE) -f src/CMakeFiles/mprpc.dir/build.make src/CMakeFiles/mprpc.dir/logger.cc.s
+.PHONY : logger.cc.s
+
 mprpcapplication.o: mprpcapplication.cc.o
 
 .PHONY : mprpcapplication.o
@@ -296,6 +323,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... mprpc"
+	@echo "... logger.o"
+	@echo "... logger.i"
+	@echo "... logger.s"
 	@echo "... mprpcapplication.o"
 	@echo "... mprpcapplication.i"
 	@echo "... mprpcapplication.s"

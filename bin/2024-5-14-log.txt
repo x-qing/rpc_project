@@ -1,0 +1,2 @@
+15:11:24 => first log message!
+15:11:24 => /home/qing/project/rpc_project/example/callee/friendservice.cc:main:48

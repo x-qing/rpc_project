@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/mprpc.dir/mprpcconfig.cc.o"
+  "CMakeFiles/mprpc.dir/logger.cc.o"
   "CMakeFiles/mprpc.dir/mprpcchannel.cc.o"
   "CMakeFiles/mprpc.dir/rpcprovider.cc.o"
   "CMakeFiles/mprpc.dir/rpcheader.pb.cc.o"

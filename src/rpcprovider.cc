@@ -1,7 +1,7 @@
 #include "rpcprovider.h"
 #include "mprpcapplication.h"
 #include "rpcheader.pb.h"
-
+#include "logger.h"
 
 
 // 用户怎么像rpcprovide注册它支持的rpc服务？怎么存储rpc服务？
@@ -25,7 +25,8 @@ void RpcProvider::NotifyService(google::protobuf::Service* service){
     // 获取服务对象方法的数量，这里应该返回1，目前里面只有一个login方法
     int methodCnt = pserviceDesc->method_count();
 
-    std::cout << "service_name:" << service_name << std::endl;
+    // std::cout << "service_name:" << service_name << std::endl;
+    Log_INFO("service_name:%s!",service_name.c_str());
 
 
     for(int i = 0;i < methodCnt; ++i){
@@ -34,7 +35,8 @@ void RpcProvider::NotifyService(google::protobuf::Service* service){
         const google::protobuf::MethodDescriptor* pmethodDesc = pserviceDesc->method(i);
         std::string method_name = pmethodDesc->name();
         service_info.m_methodMap.insert({method_name,pmethodDesc});
-        std::cout << "method_name:" << method_name << std::endl;
+        // std::cout << "method_name:" << method_name << std::endl;
+        Log_INFO("method_name:%s!",method_name.c_str());
     }
     service_info.m_service = service;
     m_serviceInfoMap.insert({service_name,service_info});

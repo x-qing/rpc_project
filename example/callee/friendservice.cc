@@ -6,6 +6,7 @@
 #include "friend.pb.h"
 #include <vector>
 
+#include "logger.h"
 
 class FriendService : public fixbug::FriendServiceRpc{
 public:
@@ -43,6 +44,9 @@ public:
 
 int main(int argc,char **argv){
 
+    // Log_INFO("first log message!");
+    // Log_ERR("%s:%s:%d!",__FILE__,__FUNCTION__,__LINE__);
+    
     // 调用框架的初始化操作
     // 启动时需要读取配置文件，需要知道ip地址和端口号，
     // provider -i config.conf  读取config.conf里面的配置文件
