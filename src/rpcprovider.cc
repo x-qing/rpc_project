@@ -6,7 +6,7 @@
 
 // 用户怎么像rpcprovide注册它支持的rpc服务？怎么存储rpc服务？
 // 怎么通过接收到远程的rpc请求来找到相应的服务？
-// 框架不可能依赖于某个业务的具体的类，这里统一用基类的指针来实现
+// 框架不可能依赖于某个业务的具体的类，这里统一用的指针来实现
 
 /*
     service_name ===>service描述 ===>
@@ -132,7 +132,7 @@ void RpcProvider::OnMessage(const muduo::net::TcpConnectionPtr& conn,muduo::net:
     std::string args_str = recv_buf.substr(4+header_size,4+header_size+args_size);
 
     // 打印信息
-    std::cout << "--------------------------------------" << std::endl;
+    std::cout << "-----------------provider---------------" << std::endl;
     std::cout << "head_size: " << header_size << std::endl;
     std::cout << "rpc_header_str: " << rpc_header_str << std::endl;
     std::cout << "service_name: " << service_name << std::endl;

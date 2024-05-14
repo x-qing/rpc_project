@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package fixbug;
+
+// 不然无法生成service类
+option cc_generic_services = true;
+
+message ResultCode{
+    int32 errcode = 1;
+    bytes errmsg = 2;
+}
+
+// 登录的请求和响应值
+message GetFriendsListRequest{
+    // bytes name = 1;
+    // bytes pwd = 2;
+    uint32 userid = 1;
+}
+
+message GetFriendsListResponse{
+    ResultCode result = 1;
+    // bool success = 2;
+    // uint32 userid = 1;
+    repeated bytes friends = 2;   // 列表，repeated表示重复的
+}
+
+// 好友模块
+service FriendServiceRpc{
+    rpc GetFriendsList(GetFriendsListRequest) returns(GetFriendsListResponse);   // 这里的Login最好是个类里的函数名一致
+}

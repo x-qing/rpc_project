@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-../example/user.pb.h
+../example/friend.pb.h
 limits
 -
 string
@@ -49,9 +49,27 @@ google/protobuf/port_undef.inc
 ../src/include/mprpcapplication.h
 mprpcconfig.h
 ../src/include/mprpcconfig.h
+mprpcchannel.h
+../src/include/mprpcchannel.h
+mprpccontroller.h
+../src/include/mprpccontroller.h
+
+../src/include/mprpcchannel.h
+google/protobuf/service.h
+-
+google/protobuf/descriptor.h
+-
+google/protobuf/message.h
+-
 
 ../src/include/mprpcconfig.h
 unordered_map
+-
+string
+-
+
+../src/include/mprpccontroller.h
+google/protobuf/service.h
 -
 string
 -
@@ -78,21 +96,23 @@ google/protobuf/descriptor.h
 unordered_map
 -
 
-/home/qing/project/rpc_project/example/callee/userservice.cc
+/home/qing/project/rpc_project/example/callee/friendservice.cc
 iostream
 -
 string
 -
-user.pb.h
-/home/qing/project/rpc_project/example/callee/user.pb.h
 mprpcapplication.h
 /home/qing/project/rpc_project/example/callee/mprpcapplication.h
 rpcprovider.h
 /home/qing/project/rpc_project/example/callee/rpcprovider.h
+friend.pb.h
+/home/qing/project/rpc_project/example/callee/friend.pb.h
+vector
+-
 
-/home/qing/project/rpc_project/example/user.pb.cc
-user.pb.h
-/home/qing/project/rpc_project/example/user.pb.h
+/home/qing/project/rpc_project/example/friend.pb.cc
+friend.pb.h
+/home/qing/project/rpc_project/example/friend.pb.h
 algorithm
 -
 google/protobuf/stubs/common.h
@@ -116,7 +136,7 @@ google/protobuf/port_def.inc
 google/protobuf/port_undef.inc
 -
 
-/home/qing/project/rpc_project/example/user.pb.h
+/home/qing/project/rpc_project/example/friend.pb.h
 limits
 -
 string

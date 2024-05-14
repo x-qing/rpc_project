@@ -9,17 +9,31 @@ message ResultCode{
     int32 errcode = 1;
     bytes errmsg = 2;
 }
+
+// 登录的请求和响应值
 message LoginRequest{
     bytes name = 1;
     bytes pwd = 2;
 }
-
 
 message LoginResponse{
     ResultCode result = 1;
     bool success = 2;
 }
 
+// 注册的请求和响应值
+message RegisterRequest{
+    uint32 id = 1;
+    bytes name = 2;
+    bytes pwd = 3;
+}
+
+message RegisterResponse{
+    ResultCode result = 1;
+    bool sucess = 2;
+}
+
 service UserServiceRpc{
     rpc Login(LoginRequest) returns(LoginResponse);   // 这里的Login最好是个类里的函数名一致
+    rpc Register(RegisterRequest) returns(RegisterResponse);
 }

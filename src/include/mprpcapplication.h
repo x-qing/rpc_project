@@ -1,6 +1,8 @@
 #pragma once
 
 #include "mprpcconfig.h"
+#include "mprpcchannel.h"
+#include "mprpccontroller.h"
 
 // rpc框架的初始化类
 // 使用单例模式
