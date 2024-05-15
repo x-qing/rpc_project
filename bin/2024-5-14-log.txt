@@ -1,2 +1,6 @@
 15:11:24 => first log message!
 15:11:24 => /home/qing/project/rpc_project/example/callee/friendservice.cc:main:48
+22:55:17 => [info] => service_name:FriendServiceRpc!
+22:55:17 => [info] => method_name:GetFriendsList!
+22:59:51 => [info] => service_name:FriendServiceRpc!
+22:59:51 => [info] => method_name:GetFriendsList!
